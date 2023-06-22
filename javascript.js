@@ -1,4 +1,4 @@
-let gridLength = 16;
+let gridLength = window.prompt('What length do you want the grid to be?', 16);
 const gridContainer = document.querySelector('.grid-container');
 
 for (i = 0; i < gridLength; i++)
@@ -8,6 +8,7 @@ for (i = 0; i < gridLength; i++)
     for (j = 0; j < gridLength; j++)
     {
         const newPixel = document.createElement('div');
+        newPixel.classList.add('pixel');
         newRow.appendChild(newPixel);
     }
     gridContainer.appendChild(newRow);

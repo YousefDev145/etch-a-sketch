@@ -1,0 +1,20 @@
+.grid-container
+{
+    height: 960px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.row
+{
+    width: 960px;
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+}
+
+.pixel
+{
+    flex: 1;
+}
