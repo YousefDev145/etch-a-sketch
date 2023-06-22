@@ -1,7 +1,8 @@
 body
 {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .grid-container
@@ -24,6 +25,8 @@ body
 .pixel
 {
     flex: 1;
+    border: 2px solid gray;
+    margin: -1px;
 }
 
 .pixel:hover

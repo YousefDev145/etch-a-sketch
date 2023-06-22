@@ -1,16 +1,29 @@
-let gridLength = window.prompt('What length do you want the grid to be?', 16);
+const resizeBtn = document.querySelector('.resize-grid');
 const gridContainer = document.querySelector('.grid-container');
-
-for (i = 0; i < gridLength; i++)
+createGrid();
+resizeBtn.addEventListener('click', () =>
 {
-    const newRow = document.createElement('div');
-    newRow.classList.add('row');
-    for (j = 0; j < gridLength; j++)
+    while (gridContainer.childElementCount > 0)
     {
-        const newPixel = document.createElement('div');
-        newPixel.classList.add('pixel');
-        newPixel.addEventListener('click', (e) => e.target.style.cssText = 'background-color: black;');
-        newRow.appendChild(newPixel);
+        gridContainer.removeChild(gridContainer.children[0]);
     }
-    gridContainer.appendChild(newRow);
+
+    createGrid(window.prompt('What length do you want the grid to be?', 16));
+});
+
+function createGrid(length = 16)
+{
+    for (i = 0; i < length; i++)
+    {
+        const newRow = document.createElement('div');
+        newRow.classList.add('row');
+        for (j = 0; j < length; j++)
+        {
+            const newPixel = document.createElement('div');
+            newPixel.classList.add('pixel');
+            newPixel.addEventListener('click', (e) => e.target.style.cssText = 'background-color: black;');
+            newRow.appendChild(newPixel);
+        }
+        gridContainer.appendChild(newRow);
+    }
 }
