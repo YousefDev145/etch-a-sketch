@@ -1,6 +1,14 @@
+body
+{
+    display: flex;
+    justify-content: center;
+}
+
 .grid-container
 {
-    height: 960px;
+    border: 1px solid black;
+    width: 500px;
+    height: 500px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -8,7 +16,6 @@
 
 .row
 {
-    width: 960px;
     display: flex;
     flex: 1;
     justify-content: space-between;
