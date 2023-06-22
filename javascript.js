@@ -21,7 +21,16 @@ function createGrid(length = 16)
         {
             const newPixel = document.createElement('div');
             newPixel.classList.add('pixel');
-            newPixel.addEventListener('click', (e) => e.target.style.cssText = 'background-color: black;');
+            let opacity = 0;
+            newPixel.addEventListener('click', (e) =>
+            {
+                if (opacity < 1)
+                {
+                    opacity += .1;
+                }
+
+                e.target.style.cssText = `background-color: rgb(0, 0, 0, ${opacity})`;
+            });
             newRow.appendChild(newPixel);
         }
         gridContainer.appendChild(newRow);
