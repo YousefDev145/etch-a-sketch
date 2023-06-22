@@ -9,6 +9,7 @@ for (i = 0; i < gridLength; i++)
     {
         const newPixel = document.createElement('div');
         newPixel.classList.add('pixel');
+        newPixel.addEventListener('click', (e) => e.target.style.cssText = 'background-color: black;');
         newRow.appendChild(newPixel);
     }
     gridContainer.appendChild(newRow);
