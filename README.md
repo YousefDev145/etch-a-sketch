@@ -1,1 +1,2 @@
 # etch-a-sketch
+Hello everyone! In this project, I am going to put my DOM Manipulation skills into use. I am going to make a pixel art grid with a custom resolution. It might sound simple, but it will be challenging, and I love challenges!
