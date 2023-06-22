@@ -1,5 +1,8 @@
 const resizeBtn = document.querySelector('.resize-grid');
 const gridContainer = document.querySelector('.grid-container');
+let mouseHeld = false;
+window.addEventListener('mousedown', () => mouseHeld = true);
+window.addEventListener('mouseup', () => mouseHeld = false)
 createGrid();
 resizeBtn.addEventListener('click', () =>
 {
@@ -22,8 +25,11 @@ function createGrid(length = 16)
             const newPixel = document.createElement('div');
             newPixel.classList.add('pixel');
             let opacity = 0;
-            newPixel.addEventListener('click', (e) =>
+            newPixel.addEventListener('mouseover', (e) =>
             {
+                if (!mouseHeld)
+                    return;
+                    
                 if (opacity < 1)
                 {
                     opacity += .1;
