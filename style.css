@@ -1,13 +1,20 @@
 body
 {
+    background-color: #FAF0CA;
+    display: flex;
+}
+
+.button-container
+{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    padding: 20px 40px;
 }
 
 .grid-container
 {
-    border: 1px solid black;
+    background-color: white;
+    box-shadow: 0 1px 5px 2px rgb(0, 0, 0, .2);
     width: 500px;
     height: 500px;
     display: flex;

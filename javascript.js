@@ -1,21 +1,27 @@
-const resizeBtn = document.querySelector('.resize-grid');
+const resizeSlider = document.querySelector('.resize-grid');
+const gridSize = document.querySelector('.grid-size');
 const toggleBtn = document.querySelector('.toggle-grid-lines');
 toggleBtn.addEventListener('click', toggleGridLines);
 const gridContainer = document.querySelector('.grid-container');
 let mouseHeld = false;
+let gridLines = false;
 let gridLength = 16;
 window.addEventListener('mousedown', () => mouseHeld = true);
 window.addEventListener('mouseup', () => mouseHeld = false);
 createGrid();
-resizeBtn.addEventListener('click', () =>
+resizeSlider.addEventListener('change', () =>
 {
+    gridLength = resizeSlider.value;
     while (gridContainer.childElementCount > 0)
     {
         gridContainer.removeChild(gridContainer.children[0]);
     }
-
-    gridLength = window.prompt('What length do you want the grid to be?', 16);
     createGrid();
+    if (gridLines)
+    {
+        toggleGridLines();
+        gridLines = true;
+    }
 });
 
 function createGrid()
@@ -56,6 +62,7 @@ function createGrid()
         }
         gridContainer.appendChild(newRow);
     }
+    gridSize.textContent = `Grid Size: ${resizeSlider.value}x${resizeSlider.value}`;
 }
 
 function toggleGridLines()
@@ -67,4 +74,5 @@ function toggleGridLines()
             gridContainer.children[i].children[j].classList.toggle('grid-lines');
         }
     }
+    gridLines = !gridLines;
 }
