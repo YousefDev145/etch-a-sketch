@@ -27,7 +27,7 @@ body
     flex: 1;
 }
 
-.gridlines
+.grid-lines
 {
     border: 1px solid gray;
 }

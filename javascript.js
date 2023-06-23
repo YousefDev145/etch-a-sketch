@@ -1,4 +1,6 @@
 const resizeBtn = document.querySelector('.resize-grid');
+const toggleBtn = document.querySelector('.toggle-grid-lines');
+toggleBtn.addEventListener('click', toggleGridLines);
 const gridContainer = document.querySelector('.grid-container');
 let mouseHeld = false;
 let gridLength = 16;
@@ -53,5 +55,16 @@ function createGrid()
             newRow.appendChild(newPixel);
         }
         gridContainer.appendChild(newRow);
+    }
+}
+
+function toggleGridLines()
+{
+    for (i = 0; i < gridLength; i++)
+    {
+        for (j = 0; j < gridLength; j++)
+        {
+            gridContainer.children[i].children[j].classList.toggle('grid-lines');
+        }
     }
 }
