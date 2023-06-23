@@ -1,8 +1,9 @@
 const resizeBtn = document.querySelector('.resize-grid');
 const gridContainer = document.querySelector('.grid-container');
 let mouseHeld = false;
+let gridLength = 16;
 window.addEventListener('mousedown', () => mouseHeld = true);
-window.addEventListener('mouseup', () => mouseHeld = false)
+window.addEventListener('mouseup', () => mouseHeld = false);
 createGrid();
 resizeBtn.addEventListener('click', () =>
 {
@@ -11,25 +12,37 @@ resizeBtn.addEventListener('click', () =>
         gridContainer.removeChild(gridContainer.children[0]);
     }
 
-    createGrid(window.prompt('What length do you want the grid to be?', 16));
+    gridLength = window.prompt('What length do you want the grid to be?', 16);
+    createGrid();
 });
 
-function createGrid(length = 16)
+function createGrid()
 {
-    for (i = 0; i < length; i++)
+    for (i = 0; i < gridLength; i++)
     {
         const newRow = document.createElement('div');
         newRow.classList.add('row');
-        for (j = 0; j < length; j++)
+        for (j = 0; j < gridLength; j++)
         {
             const newPixel = document.createElement('div');
             newPixel.classList.add('pixel');
             let opacity = 0;
             newPixel.addEventListener('mouseover', (e) =>
             {
-                if (!mouseHeld)
-                    return;
-                    
+                if (mouseHeld)
+                {
+                    if (opacity < 1)
+                    {
+                        opacity += .1;
+                    }
+
+                    e.target.style.cssText = `background-color: rgb(0, 0, 0, ${opacity})`;
+                }
+
+                
+            });
+            newPixel.addEventListener('mousedown', (e) =>
+            {
                 if (opacity < 1)
                 {
                     opacity += .1;

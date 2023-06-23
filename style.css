@@ -25,8 +25,11 @@ body
 .pixel
 {
     flex: 1;
-    border: 2px solid gray;
-    margin: -1px;
+}
+
+.gridlines
+{
+    border: 1px solid gray;
 }
 
 .pixel:hover
