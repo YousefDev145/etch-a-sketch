@@ -46,8 +46,6 @@ function createGrid()
 
                     e.target.style.cssText = `background-color: rgb(0, 0, 0, ${opacity})`;
                 }
-
-                
             });
             newPixel.addEventListener('mousedown', (e) =>
             {
